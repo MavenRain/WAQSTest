@@ -1,0 +1,1 @@
+<#@ include file="..\WPFClientTemplates\WCFAsyncQueryableServices.VS12.NET45.Client.WPF.DTO.merge.ttinclude"#><#WriteClientDTOs(new SpecificationPath[] { new SpecificationPath { Sln = @"..\WAQSTest.sln", Csproj = @"..\..\WebApplication1\WebApplication1.csproj", Folder = @"..\..\WebApplication1\DTO\"} }, "http://WAQSModel/DTO", new Dictionary<string, string>(), @"WAQSTest.DTO");#>

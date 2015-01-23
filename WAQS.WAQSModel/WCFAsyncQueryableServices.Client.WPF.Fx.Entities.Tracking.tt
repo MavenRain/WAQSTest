@@ -1,0 +1,1 @@
+<#@ include file="..\WPFClientTemplates\WCFAsyncQueryableServices.VS12.NET45.Client.WPF.Fx.Entities.Tracking.merge.ttinclude"#><#WriteClientFxEntitiesTracking("WCFAsyncQueryableServices.EntitiesTracking");#>

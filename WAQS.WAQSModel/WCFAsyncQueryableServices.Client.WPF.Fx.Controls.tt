@@ -1,0 +1,1 @@
+<#@ include file="..\WPFClientTemplates\WCFAsyncQueryableServices.VS12.NET45.Client.WPF.Fx.Controls.merge.ttinclude"#><#WriteClientFxControls("WCFAsyncQueryableServices.ClientContext.Interfaces", "WCFAsyncQueryableServices.ClientContext", "WCFAsyncQueryableServices.ComponentModel", "WCFAsyncQueryableServices.Controls.Converters", "WCFAsyncQueryableServices.Controls");#>

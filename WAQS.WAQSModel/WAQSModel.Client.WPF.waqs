@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<WCFAsyncQueryableServices.Client EdmxPath="..\..\WebApplication1\WAQSModel.edmx">
+  <Specifications>
+    <Specification SlnFilePath="..\WAQSTest.sln" CsprojPath="..\..\WebApplication1\WebApplication1.csproj" FolderPath="..\..\WebApplication1\Specifications\" />
+  </Specifications>
+  <DTOs>
+    <DTO SlnFilePath="..\WAQSTest.sln" CsprojPath="..\..\WebApplication1\WebApplication1.csproj" FolderPath="..\..\WebApplication1\DTO\" />
+  </DTOs>
+  <Entities UTC="false" />
+  <ClientContext WSDL="http://localhost:49582/WAQSModel.svc?wsdl" />
+  <ClientContextInterfaces />
+  <Framework>
+    <ComponentModel NamespaceName="WCFAsyncQueryableServices.ComponentModel" Generate="true" />
+    <EntitiesTracking NamespaceName="WCFAsyncQueryableServices.EntitiesTracking" Generate="true"/>
+    <ClientContext NamespaceName="WCFAsyncQueryableServices.ClientContext" Generate="true" />
+    <ClientContextInterfaces NamespaceName="WCFAsyncQueryableServices.ClientContext.Interfaces" Generate="true" />
+    <Entities NamespaceName="WCFAsyncQueryableServices.Entities" Generate="true" />
+    <Controls NamespaceName="WCFAsyncQueryableServices.Controls" Generate="true" />
+  </Framework>
+  <WCFAsyncQueryableServices.Server>
+    <Entities SlnFilePath="..\WAQSTest.sln" CsprojPath="..\..\WebApplication1\WebApplication1.csproj" FolderPath="..\..\WebApplication1\WAQS.WAQSModel\" NamespaceName="WebApplication1" />
+    <Framework>
+      <Common NamespaceName="WCFAsyncQueryableServices.Common" />
+      <Specifications NamespaceName="WCFAsyncQueryableServices.Specifications" />
+      <DALInterfaces NamespaceName="WCFAsyncQueryableServices.DAL.Interfaces" />
+      <ServiceInterfaces NamespaceName="WCFAsyncQueryableServices.Service.Interfaces" />
+    </Framework>
+  </WCFAsyncQueryableServices.Server>
+</WCFAsyncQueryableServices.Client>

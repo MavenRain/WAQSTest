@@ -1,0 +1,1 @@
+<#@ include file="..\..\WAQSTest\ServerTemplates\WCFAsyncQueryableServices.VS12.NET45.Server.Fx.SerializableExpressions.merge.ttinclude"#><#WriteSerializableExpressions("WCFAsyncQueryableServices.Entities", "WCFAsyncQueryableServices.DAL.Interfaces", "WCFAsyncQueryableServices.SerializableExpressions");#>

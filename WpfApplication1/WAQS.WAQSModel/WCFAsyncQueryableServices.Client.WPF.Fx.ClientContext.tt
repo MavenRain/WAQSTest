@@ -1,0 +1,1 @@
+<#@ include file="..\..\WAQSTest\WPFClientTemplates\WCFAsyncQueryableServices.VS12.NET45.Client.WPF.Fx.ClientContext.merge.ttinclude"#><#WriteClientFxClientContext("WCFAsyncQueryableServices.ComponentModel", "WCFAsyncQueryableServices.EntitiesTracking", "WCFAsyncQueryableServices.ClientContext.Interfaces", null, "WCFAsyncQueryableServices.ClientContext", true);#>

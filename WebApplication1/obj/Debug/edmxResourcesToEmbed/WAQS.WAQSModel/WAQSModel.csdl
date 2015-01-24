@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="WAQSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="WAQSModelContainer" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Entity1" EntityType="WAQSModel.Entity1" />
+    <FunctionImport Name="GetDbDateTime" ReturnType="Collection(DateTime)" />
+  </EntityContainer>
+  <EntityType Name="Entity1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Size" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Function Name="LessThanString" ReturnType="Boolean">
+    <Parameter Name="s1" Type="String" />
+    <Parameter Name="s2" Type="String" />
+    <DefiningExpression>s1 &lt; s2</DefiningExpression>
+  </Function>
+  <Function Name="GreaterThanString" ReturnType="Boolean">
+    <Parameter Name="s1" Type="String" />
+    <Parameter Name="s2" Type="String" />
+    <DefiningExpression>s1 &gt; s2</DefiningExpression>
+  </Function>
+</Schema>

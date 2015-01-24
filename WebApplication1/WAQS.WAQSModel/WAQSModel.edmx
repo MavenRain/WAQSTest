@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Matthieu MEZIL.  All rights reserved. -->
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Runtime xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- SSDL content -->
+  <edmx:StorageModels>
+    <Schema Namespace="WAQSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <EntityType Name="Entity1">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
+        <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+      </EntityType>
+      <EntityContainer Name="WAQSModelStoreContainer">
+        <EntitySet Name="Entity1" EntityType="Self.Entity1" Schema="dbo" store:Type="Tables" />
+      </EntityContainer>
+      <Function Name="GetDbDateTime" IsComposable="false">
+        <CommandText>SELECT GetDate()</CommandText>
+      </Function>
+    </Schema>
+  </edmx:StorageModels>
+  <!-- CSDL content -->
+  <edmx:ConceptualModels>
+    <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="WAQSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+      <EntityContainer Name="WAQSModelContainer" annotation:LazyLoadingEnabled="false">
+        <EntitySet Name="Entity1" EntityType="WAQSModel.Entity1" />
+        <FunctionImport Name="GetDbDateTime" ReturnType="Collection(DateTime)" />
+      </EntityContainer>
+      <EntityType Name="Entity1">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        <Property Name="Size" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <Function Name="LessThanString" ReturnType="Boolean">
+        <Parameter Name="s1" Type="String" />
+        <Parameter Name="s2" Type="String" />
+        <DefiningExpression>s1 &lt; s2</DefiningExpression>
+      </Function>
+      <Function Name="GreaterThanString" ReturnType="Boolean">
+        <Parameter Name="s1" Type="String" />
+        <Parameter Name="s2" Type="String" />
+        <DefiningExpression>s1 &gt; s2</DefiningExpression>
+      </Function>
+    </Schema>
+  </edmx:ConceptualModels>
+  <!-- C-S mapping content -->
+  <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+      <EntityContainerMapping StorageEntityContainer="WAQSModelStoreContainer" CdmEntityContainer="WAQSModelContainer">
+        <EntitySetMapping Name="Entity1">
+          <EntityTypeMapping TypeName="IsTypeOf(WAQSModel.Entity1)">
+            <MappingFragment StoreEntitySet="Entity1">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+              <ScalarProperty Name="Size" ColumnName="Size" />
+              <ScalarProperty Name="Name" ColumnName="Name" />
+            </MappingFragment>
+          </EntityTypeMapping>
+        </EntitySetMapping>
+        <FunctionImportMapping FunctionImportName="GetDbDateTime" FunctionName="WAQSModel.Store.GetDbDateTime" />
+      </EntityContainerMapping>
+    </Mapping>
+  </edmx:Mappings>
+</edmx:Runtime>
+<Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Connection>
+    <DesignerInfoPropertySet>
+      <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+    </DesignerInfoPropertySet>
+  </Connection>
+  <Options>
+    <DesignerInfoPropertySet>
+      <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      <DesignerProperty Name="EnablePluralization" Value="True" />
+      <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+    </DesignerInfoPropertySet>
+  </Options>
+  <!-- Diagram content (shape and connector positions) -->
+  <Diagrams></Diagrams>
+</Designer>
+</edmx:Edmx>

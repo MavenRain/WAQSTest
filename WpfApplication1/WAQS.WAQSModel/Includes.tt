@@ -1,0 +1,5 @@
+<#@ template language="C#" hostspecific="true"#>
+<#@ include file="..\..\WAQSTest\WPFClientTemplates\WCFAsyncQueryableServices.VS12.Edmx.Utility.merge.ttinclude"#>
+<#@ output extension=".txt"#>
+<#var fileManager = EntityFrameworkTemplateFileManager.Create(this);#>
+<#fileManager.Process();#>

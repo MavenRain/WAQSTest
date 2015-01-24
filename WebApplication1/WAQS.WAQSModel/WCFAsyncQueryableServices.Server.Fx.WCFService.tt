@@ -1,0 +1,1 @@
+<#@ include file="..\..\WAQSTest\ServerTemplates\WCFAsyncQueryableServices.VS12.NET45.Server.Fx.WCFService.merge.ttinclude"#><#WriteServerFxWCFService("WCFAsyncQueryableServices.Service.Interfaces", "WCFAsyncQueryableServices.Service", "WCFAsyncQueryableServices.WCFService.Contract", "WCFAsyncQueryableServices.Common", "WCFAsyncQueryableServices.WCFService");#>

@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{655B3AC8-DDF9-49D5-B14A-66BEB816B5B1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WpfApplication1</RootNamespace>
+    <AssemblyName>WpfApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\WAQSTest\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\WAQSTest\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\WAQSTest\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive">
+      <HintPath>..\WAQSTest\packages\Rx-Main.1.0.11226\lib\Net4\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\WAQSTest\packages\Rx-WPF.1.0.11226\lib\Net4\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="MainVM.cs" />
+    <Compile Include="WAQS.WAQSModel\AsyncQueryable.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\AsyncQueryableBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\AsyncQueryableExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\AsyncQueryableInclude.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\AsyncQueryableValue.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\BindableObject.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\BoolToVisibilityConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ByStepQuery.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ClientEntitySet.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ClientEntitySetBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ClientEntitySetExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ClientSubEntitySet.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Criticity.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\CritityConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\CustomPropertyDescriptor.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\DataErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\DateConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\DynamicType.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Entity1.cs">
+      <DependentUpon>WAQSModel.Client.WPF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Entity1Keys.cs">
+      <DependentUpon>Keys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EqualityComparer.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Error.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorCollection.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorException.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorsBehaviors.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorSource.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExecuteCompletedEventArgs.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExecuteManyCompletedEventArgs.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExpressionExtension.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExtendedPropertiesDictionary.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\FaultDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\GetDbDateTimeCompletedEventArgs.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Grouping.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncQueryable.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncQueryableBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncQueryableValue.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IBindableObject.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IClientContext.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IClientContextBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IClientEntitySet.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IDynamicType.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntity.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntityCollection.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntityWithErrors.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IExpressionTransformer.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IMessageBoxService.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IncludeExpressionVisitor.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IncludeMethodAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\INotifyComplexPropertyChanging.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IntToVisibilityCollapsedIfZeroConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IObjectWithChangeTracker.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IPaginatedQuery.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ISerializableContext.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IsKnownByServerAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ITrackableCollection.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSModelClientContext.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSModelService.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSModelServiceChannel.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\LoadPageCompletedEventArgs.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\LoadPageParameter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MaxLengthErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MaxValueErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MergeOption.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MessageBoxService.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MinLengthErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MinValueErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\NavigationPanel.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\NotifyPropertyChanged.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectChangeTracker.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectList.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectsAddedToCollectionProperties.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectsRemovedFromCollectionProperties.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectState.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectStateChangedEventArgs.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectWithChangeTrackerExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObservableDictionary.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\OriginalValuesDictionary.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\PaginatedActions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\PaginatedQuery.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ParameterMode.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\PatternErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\PropertyName.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ProxyHelper.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueriesSerialization.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryPage.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryResult.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryResultProperty.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryResultRecord.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QuerySerialization.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Reference.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\RefreshMode.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\RelayCommand.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ReplaceTypeRewriter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\RequiredFieldErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SaveChangesCompletedEventArgs.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SavingException.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableBinaryExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableConditionalExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableConstantExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableConstructorExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableEntitySetExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionBuilder.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionExtension.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionRewriter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableLambdaExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableMemberExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableMemberInitExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableMethodCallExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableParameterExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializablePropertyExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializablePropertyGetterExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializablePropertySetterExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableType.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableTypeBinaryExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableUnaryExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ServerException.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\TimeConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\TrackableCollection.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\TrackableCollectionBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\UIThread.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidateBindingOnEnterBehavior.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidateEntity1CompletedEventArgs.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidateErrorInfo.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Validators.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ViewModelBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelAsyncQueryableExtension.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelClientContext.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelClientContextBase.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelClientEntitySetExtensions.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelErrorKeys.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelErrorsExtension.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelExpressionTransformer.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelFaultDetailEntities.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueriesResult.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueryResult.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueryResultPage.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelSerializableContext.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelServiceClient.cs">
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="WAQS.WAQSModel\NavigationPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="WAQS.WAQSModel\WAQSModel.Client.WPF.waqs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WAQS.WAQSModel\Includes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+      <LastGenOutput>Includes.txt</LastGenOutput>
+    </Content>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Entities.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Controls.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.DTO.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.DTO.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.DTO.Specifications.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.DTO.Specifications.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.Entities.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.Entities.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.ClientContext.Interfaces.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.Interfaces.tt</DependentUpon>
+    </Resource>
+    <Resource Include="WAQS.WAQSModel\Includes.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Includes.tt</DependentUpon>
+    </Resource>
+    <Content Include="WAQS.WAQSModel\Keys.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+      <LastGenOutput>Keys.txt</LastGenOutput>
+    </Content>
+    <Resource Include="WAQS.WAQSModel\Keys.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Keys.tt</DependentUpon>
+    </Resource>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.ClientContext.Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Client.WPF.ClientContext.Interfaces.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.ClientContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Client.WPF.ClientContext.txt</LastGenOutput>
+    </Content>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.ClientContext.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.ClientContext.tt</DependentUpon>
+    </Resource>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.DTO.Specifications.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Client.WPF.DTO.Specifications.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.DTO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Client.WPF.DTO.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Client.WPF.Entities.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.ServiceProxy.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Client.WPF.ServiceProxy.txt</LastGenOutput>
+    </Content>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.ServiceProxy.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.ServiceProxy.tt</DependentUpon>
+    </Resource>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Client.WPF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WAQSModel.Client.WPF.txt</LastGenOutput>
+    </Content>
+    <Resource Include="WAQS.WAQSModel\WAQSModel.Client.WPF.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+    </Resource>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.Interfaces.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.ClientContext.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.ComponentModel.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.Converters.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Controls.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.Controls.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.Tracking.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Client.WPF.Fx.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Client.WPF.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Client.WPF.Fx.Entities.txt</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

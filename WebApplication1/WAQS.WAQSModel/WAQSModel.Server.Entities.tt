@@ -1,0 +1,1 @@
+<#@ include file="..\..\WAQSTest\ServerTemplates\WCFAsyncQueryableServices.VS12.NET45.Server.Entities.merge.ttinclude"#><#WriteServerEntities(@"..\WAQSModel.edmx", "WCFAsyncQueryableServices.Entities", "WebApplication1", null, null, null);#>

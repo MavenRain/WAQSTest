@@ -1,0 +1,860 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{900992DC-9482-41F7-8F2B-5A408E53FA03}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\WAQSTest\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\WAQSTest\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\WAQSTest\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\WAQSTest\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\WAQSTest\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.waqs" />
+    <EntityDeploy Include="WAQS.WAQSModel\WAQSModel.edmx">
+      <DependentUpon>WAQSModel.DAL.edmx.tt</DependentUpon>
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WAQSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WAQSModel.edmx" />
+    <Content Include="WAQSModel.edmx.diagram">
+      <DependentUpon>WAQSModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="WAQS.WAQSModel\Includes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.Service.Interfaces.tt</DependentUpon>
+      <LastGenOutput>Includes.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\Includes.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Includes.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\InheritedTypes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+      <LastGenOutput>InheritedTypes.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\InheritedTypes.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InheritedTypes.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.DAL.edmx.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.DAL.edmx.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.DAL.edmx.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.DAL.edmx.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.DAL.Views.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.DAL.edmx.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.DAL.Views.cs</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DAL.Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.DAL.Interfaces.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DAL.Interfaces.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.DAL.Interfaces.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.DAL.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DAL.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.DAL.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DTO.Specifications.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.DTO.Specifications.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DTO.Specifications.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.DTO.Specifications.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DTO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.DTO.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.DTO.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.DTO.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Entities.Specifications.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.Entities.Specifications.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Entities.Specifications.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.Entities.Specifications.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.Entities.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Entities.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.Entities.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Service.Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.Service.Interfaces.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Service.Interfaces.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.Service.Interfaces.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Service.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.Service.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.Service.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WAQSModel.Server.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.WCFService.Contract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.WCFService.Contract.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.WCFService.Contract.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.WCFService.Contract.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.WCFService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WAQSModel.Server.WCFService.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WAQSModel.Server.WCFService.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.Server.WCFService.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Common.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.Common.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Common.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.DAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.DAL.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.DAL.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.Entities.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Entities.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Service.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.Service.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Service.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Specifications.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.Specifications.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.Specifications.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.WCFService.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+      <LastGenOutput>WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.txt</LastGenOutput>
+    </Content>
+    <Content Include="WAQS.WAQSModel\WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.tt</DependentUpon>
+    </Content>
+    <Content Include="WAQSModel.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\Person.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specifications\Yourclass.cs" />
+    <Compile Include="WAQS.WAQSModel\AbstractAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\AsyncEnumerable.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Criticity.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\CustomAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\CustomizableObjectContext.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\DbValuesDictionary.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EFAsyncEnumerableFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EFAsyncEnumerator.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EFAsyncQueryProviderFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EntitiesInitializer.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Entity1.cs">
+      <DependentUpon>WAQSModel.Server.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Entity1.specifications.cs">
+      <DependentUpon>WAQSModel.Server.Entities.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Entity1DALSpecifications.cs">
+      <DependentUpon>WAQSModel.Server.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EntitySet.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EnumUtils.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\EqualityComparer.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Error.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorCollection.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ErrorDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExceptionDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExceptionDetailFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExceptionHandlerMessageInspector.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExceptionHandlerObjectContext.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExposeAsServiceAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExpressionExtension.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ExtendedPropertiesDictionary.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\FaultDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncEnumerable.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncEnumerableFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncEnumerator.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IAsyncQueryProviderFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IDataContext.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntity.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntity1DALSpecifications.cs">
+      <DependentUpon>WAQSModel.Server.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntityAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IEntitySet.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IExceptionDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IExceptionDetailFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IncludeExpressionVisitor.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IncludeMethodAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\InheritedEntity1.cs">
+      <DependentUpon>InheritedTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\INotifyComplexPropertyChanging.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IObjectContext.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IObjectWithChangeTracker.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ISerializableExpressionConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ISerializableExpressionProvider.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IService.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSModelContainer.cs">
+      <DependentUpon>WAQSModel.Server.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSModelService.cs">
+      <DependentUpon>WAQSModel.Server.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSModelWCFService.cs">
+      <DependentUpon>WAQSModel.Server.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSQuery.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSQueryBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\IWAQSQueryValue.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\LoadPageParameter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MergeOption.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\MergeOptionExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Metadata.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Multiplicity.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\NavigationProperty.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\NotApplicableOnClientAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectChangeTracker.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectContextCustomizer.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectContextCustomizerBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectList.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectsAddedToCollectionProperties.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectsRemovedFromCollectionProperties.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectState.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectStateChangingEventArgs.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ObjectWithChangeTrackerExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\OriginalValuesDictionary.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\OverrideAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\PropertyDependence.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\PropertyName.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueriesSerialization.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryableExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryableInclude.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryResult.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryResultProperty.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QueryResultRecord.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\QuerySerialization.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\Reference.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ReplaceTypeRewriter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SelfTrackingEntitiesContextExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableBinaryExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableConditionalExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableConstantExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableConstructorExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableEntitySetExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionProvider.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionReference.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionToL2EExpressionConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionToLINQExpressionConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableExpressionVisitor.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableLambdaExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableMemberExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableMemberInitExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableMethodCallExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableParameterExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializablePropertyExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializablePropertyGetterExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializablePropertySetterExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableType.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableTypeBinaryExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableTypeConverter.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SerializableUnaryExpression.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.SerializableExpressions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ServiceBase.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\SpecificationsAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\StandardFaultsAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\TrackableCollection.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\TrackableCollectionDALExtensions.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\TrackableCollectionExtension.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\UpdateExceptionDetail.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidateMode.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidateOnClientAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidateOnServerAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\ValidationException.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\VirtualAttribute.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.Specifications.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSL2EExpressionTransformation.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModel.DAL.Views.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.DAL.Views.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WAQSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModel.Global.asax.cs">
+      <DependentUpon>WAQSModel.Server.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelContainer.cs">
+      <DependentUpon>WAQSModel.Server.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelEntitiesFilters.cs">
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelFaultDetailEntities.cs">
+      <DependentUpon>WAQSModel.Server.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelFaultsAttribute.cs">
+      <DependentUpon>WAQSModel.Server.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueriesResult.cs">
+      <DependentUpon>WAQSModel.Server.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueryableExtension.cs">
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueryResult.cs">
+      <DependentUpon>WAQSModel.Server.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelQueryResultPage.cs">
+      <DependentUpon>WAQSModel.Server.Service.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelSerializableContext.cs">
+      <DependentUpon>WAQSModel.Server.WCFService.Contract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelSerializableExpressionConverter.cs">
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelSerializableExpressionConverterL2E.cs">
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelService.cs">
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelServiceL2E.cs">
+      <DependentUpon>WAQSModel.Server.Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSModelWCFService.cs">
+      <DependentUpon>WAQSModel.Server.WCFService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSQuery.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSQueryProvider.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WAQSQueryValue.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFExceptionHandler.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFExceptionHandlerEndpointBehavior.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.ExceptionHandler.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFService.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFUnityInstanceProvider.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFUnityServiceBehavior.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFUnityServiceHost.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WCFUnityServiceHostFactory.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.WCFService.UnityService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WithEntity1.cs">
+      <DependentUpon>InheritedTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAQS.WAQSModel\WithType.cs">
+      <DependentUpon>WCFAsyncQueryableServices.Server.Fx.DAL.Interfaces.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49582</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49582/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

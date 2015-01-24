@@ -1,0 +1,1 @@
+<#@ include file="..\..\WAQSTest\ServerTemplates\WCFAsyncQueryableServices.VS12.NET45.Server.DTO.merge.ttinclude"#><#WriteServerDTOs(new SpecificationPath[] { new SpecificationPath { Sln = @"..\..\WAQSTest\WAQSTest.sln", Csproj = @"..\WebApplication1.csproj", Folder = @"..\DTO\"} }, "http://WAQSModel/DTO", "WebApplication1");#>

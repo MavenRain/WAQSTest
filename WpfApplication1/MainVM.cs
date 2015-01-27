@@ -27,8 +27,15 @@ namespace WpfApplication1
 
         private async Task FooAsync()
         {
-            var test = await _context.Entity1.AsAsyncQueryable().Where(e => e.NameLength > 5).ExecuteAsync();
-            test.First().Name += "!";
+            //var test = await _context.Entity1.AsAsyncQueryable().Where(e => e.NameLength > 5).ExecuteAsync();
+            var test2 = await _context.Entity1.AsAsyncQueryable().ExecuteAsync();
+            //test.First().Name += "!";
+            test2.First().Name += "!";
+            // var test3 = new Entity1() {Name = "Sam", Size = "5"};
+            // _context.Entity1.Add(test3);
+            // await _context.SaveChangesAsync();
+            // _context.Entity1.Remove(test2.Last());
+            _context.Entity1.Remove(test2.Last());
             await _context.SaveChangesAsync();
         }
     }

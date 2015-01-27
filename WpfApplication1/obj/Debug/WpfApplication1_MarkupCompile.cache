@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\WpfApplication1\obj\Debug\
+E:\WAQSTest\WpfApplication1\obj\Debug\
 WpfApplication1
 none
 false
 DEBUG;TRACE
-E:\WpfApplication1\App.xaml
+E:\WAQSTest\WpfApplication1\App.xaml
 2-1832156877
 161043933583
 147755561122
-23-1501974113
+23-1391156383
 MainWindow.xaml;WAQS.WAQSModel\NavigationPanel.xaml;
 
 False
